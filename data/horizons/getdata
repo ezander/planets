@@ -1,0 +1,11 @@
+#! /bin/bash
+
+tmp=horizons$$.txt
+out=horizon_$1.txt
+
+./ftpinp $1 | tee $tmp
+
+cat $tmp > $out
+dos2unix -f $out
+rm $tmp
+echo ""

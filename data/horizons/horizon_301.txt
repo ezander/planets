@@ -1,0 +1,154 @@
+spawn telnet ssd.jpl.nasa.gov 6775
+Trying 128.149.23.134...
+Connected to ssd.jpl.nasa.gov.
+Escape character is '^]'.
+ 
+  ======================================================================
+  |                     Jet Propulsion Laboratory                      |
+  |                                                                    |
+  |                  * * *    W A R N I N G   * * *                    |
+  |                                                                    |
+  |                          Property of the                           |
+  |                      UNITED STATES GOVERNMENT                      |
+  |                                                                    |
+  |    This computer is funded by the United States Government and     |
+  | operated by the California Institute of Technology in support of   |
+  | ongoing U.S. Government programs and activities.  If you are not   |
+  | authorized to access this system, disconnect now.  Users of this   |
+  | system have no expectation of privacy. By continuing, you consent  |
+  |     to your keystrokes and data content being monitored.           |
+  ======================================================================
+ 
+[H[J                                                                          
+     ___    _____     ___                                                 
+    /_ /|  /____/ \  /_ /|       Horizons On-line Ephemeris System v3.76  
+    | | | |  __ \ /| | | |       Solar System Dynamics Group              
+ ___| | | | |__) |/  | | |__     Jet Propulsion Laboratory                
+/___| | | |  ___/    | |/__ /|   Pasadena, CA, USA                        
+|_____|/  |_|/       |_____|/                                             
+ 
+ Establishing connection, stand-by ...  
+[H[J 
+JPL Horizons, version 3.76 
+Type `?' for brief intro, `?!' for more details 
+System news updated May 28, 2013
+ 
+Horizons> 301
+[?1h=*******************************************************************************
+Revised: Mar 11, 1998             Moon / (Earth)                            301
+ 
+PHYSICAL PROPERTIES:
+ Radius, km            = 1737.53+-0.03   Mass, 10^20 kg        =  734.9
+ Density, gm cm^-3     =    3.3437       Geometric albedo      =    0.12
+ V(1,0)                =   +0.21         GM, km^3/s^2          = 4902.798+-.005
+ Earth/Moon mass ratio = 81.300587       Surface gravity       =    1.62 m s^-2
+ Nearside crust. thick.= 58+-8 km        Farside crust. thick. = ~80 - 90 km
+ Heat flow, Apollo 15  = 3.1+-.6 mW/m^2  Heat flow, Apollo 17  = 2.2+-.5 mW/m^2
+ Mean crustal density  = 2.97+-.07g/cm^3 k2                    = 0.0302+-.0012 
+ Induced magnetic mom. = 4.23x10^22Gcm^3 Magnetometer moment   = 435+-15
+
+DYNAMICAL CHARACTERISTICS:
+ Mean angular diameter = 31'05.2"        Orbit period          = 27.321582 d
+ Obliquity to orbit    = 6.67 deg        Eccentricity          = 0.05490
+ Semi-major axis, a    = 384400 km       Inclination           = 5.145 deg
+ Mean motion, rad/s    = 2.6616995x10^-6 Nodal period          = 6798.38 d
+ Apsidal period        = 3231.50 d       Mom. of inertia C/MR^2= 0.3935+-.0011
+ beta (C-A/B), x10^-4  = 6.31(72+-15)    gamma (B-A/C), x10^-4 = 2.278(8+-2)
+*******************************************************************************
+[K[?1l> Select ... [E]phemeris, [F]tp, [M]ail, [R]edisplay, ?, <cr>: E
+ 
+ Observe, Elements, Vectors  [o,e,v,?] : v
+ Coordinate center [ <id>,coord,geo  ] : 500@0
+[?1h=
+   #   E. Lon    DXY      DZ    Observatory Name
+  --- -------- ------- -------  ----------------
+  500   0.0000 +000000  000000  Solar System Barycenter (SSB)
+[K[?1l> 
+ Confirm selected station    [ y/n ] --> y
+ Reference plane [eclip, frame, body ] : eclip
+ Starting CT  [>= 3001BC-Feb-23 00:00] : 2000-01-01
+ Ending   CT  [<=   3000-May-06 00:00] : 2000-01-11
+ Output interval [ex: 10m, 1h, 1d, ? ] : 10d
+ 
+ Current output table defaults --
+   Ref. Frame   = ICRF/J2000.0
+   Corrections  = NONE
+   Units        = AU-D
+   CSV format   = NO
+   Table type   = 03 (position, velocity, LT, rng, rng-rate)
+   Vector label = NO
+ 
+ Accept default output [ cr=(y), n, ?] : y
+ Working ...   -  
+[?1h=*******************************************************************************
+Ephemeris / PORT_LOGIN Fri Jul  5 05:56:08 2013 Pasadena, USA    / Horizons    
+*******************************************************************************
+Target body name: Moon (301)                      {source: DE405}
+Center body name: Solar System Barycenter (0)     {source: DE405}
+Center-site name: BODY CENTER
+*******************************************************************************
+Start time      : A.D. 2000-Jan-01 00:00:00.0000 CT 
+Stop  time      : A.D. 2000-Jan-11 00:00:00.0000 CT 
+Step-size       : 14400 minutes
+*******************************************************************************
+Center geodetic : 0.00000000,0.00000000,0.0000000 {E-lon(deg),Lat(deg),Alt(km)}
+Center cylindric: 0.00000000,0.00000000,0.0000000 {E-lon(deg),Dxy(km),Dz(km)}
+Center radii    : (undefined)                                                  
+Output units    : AU-D                                                         
+Output format   : 03
+Reference frame : ICRF/J2000.0                                                 
+Output type     : GEOMETRIC cartesian states
+Coordinate systm: Ecliptic and Mean Equinox of Reference Epoch                 
+*******************************************************************************
+JDCT 
+   X     Y     Z
+   VX    VY    VZ
+   LT    RG    RR
+*******************************************************************************
+$$SOE
+2451544.500000000 = A.D. 2000-Jan-01 00:00:00.0000 (CT)
+  -1.777871599453381E-01  9.643743953314254E-01  4.464155113979891E-04
+  -1.690468993697087E-02 -3.477070825128482E-03 -1.005321785562563E-06
+   5.663620776900372E-03  9.806255390816062E-01 -3.546325236176947E-04
+2451554.500000000 = A.D. 2000-Jan-11 00:00:00.0000 (CT)
+  -3.420315593099387E-01  9.198806974107061E-01  7.143511777813441E-05
+  -1.624040928703866E-02 -5.439836211323898E-03 -4.245734452969458E-05
+   5.668152922534303E-03  9.814102557726667E-01  5.611609907477543E-04
+$$EOE
+*******************************************************************************
+Coordinate system description:
+
+  Ecliptic and Mean Equinox of Reference Epoch
+
+    Reference epoch: J2000.0
+    xy-plane: plane of the Earth's orbit at the reference epoch
+[7m < Scroll & Page: space, <cr>, <b>ack, OR arrow keys. <q> ends display. > 56%[m[K[K    x-axis  : out along ascending node of instantaneous plane of the Earth's
+              orbit and the Earth's mean equator at the reference epoch
+    z-axis  : perpendicular to the xy-plane in the directional (+ or -) sense
+              of Earth's north pole at the reference epoch.
+
+Symbol meaning [1 AU=149597870.691 km, 1 day=86400.0 s]:
+
+    JDCT     Epoch Julian Date, Coordinate Time
+      X      x-component of position vector (AU)                               
+      Y      y-component of position vector (AU)                               
+      Z      z-component of position vector (AU)                               
+      VX     x-component of velocity vector (AU/day)                           
+      VY     y-component of velocity vector (AU/day)                           
+      VZ     z-component of velocity vector (AU/day)                           
+      LT     One-way down-leg Newtonian light-time (day)                       
+      RG     Range; distance from coordinate center (AU)                       
+      RR     Range-rate; radial velocity wrt coord. center (AU/day)            
+
+Geometric states/elements have no aberration corrections applied.
+
+ Computations by ...
+     Solar System Dynamics Group, Horizons On-Line Ephemeris System
+     4800 Oak Grove Drive, Jet Propulsion Laboratory
+     Pasadena, CA  91109   USA
+     Information: http://ssd.jpl.nasa.gov/
+     Connect    : telnet://ssd.jpl.nasa.gov:6775  (via browser)
+                  telnet ssd.jpl.nasa.gov 6775    (via command-line)
+     Author     : Jon.Giorgini@jpl.nasa.gov
+*******************************************************************************
+[K[?1l> >>> Select... [A]gain, [N]ew-case, [F]tp, [K]ermit, [M]ail, [R]edisplay, ? : 

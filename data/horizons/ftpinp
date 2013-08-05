@@ -1,0 +1,40 @@
+#!/usr/bin/expect -f
+
+spawn telnet ssd.jpl.nasa.gov 6775
+
+expect "for more details"
+expect "Horizons> "
+send "$argv\r"
+
+expect "Select ... ?E?phemeris, ?F?tp, ?M?ail, ?R?edisplay, ?, <cr>: "
+send "E\r"
+
+expect "Observe, Elements, Vectors*:"
+send "v\n"
+
+expect "Coordinate center*: "
+send "500@0\n"
+
+expect "Confirm selected station*--> "
+send "y\n"
+
+expect "Reference plane*: "
+send "eclip\n"
+
+expect "Starting CT*3001BC-Feb-23 00:00*: "
+send "2000-01-01\n"
+
+expect "Ending   CT*3000-May-06 00:00*: "
+send "2000-01-11\n"
+
+expect "Output interval*: "
+send "10d\n"
+
+expect "Accept default output*: "
+send "y\n"
+
+expect "display"
+send " \n"
+
+expect "display"
+send "q\n"

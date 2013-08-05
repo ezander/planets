@@ -1,0 +1,152 @@
+spawn telnet ssd.jpl.nasa.gov 6775
+Trying 128.149.23.134...
+Connected to ssd.jpl.nasa.gov.
+Escape character is '^]'.
+ 
+  ======================================================================
+  |                     Jet Propulsion Laboratory                      |
+  |                                                                    |
+  |                  * * *    W A R N I N G   * * *                    |
+  |                                                                    |
+  |                          Property of the                           |
+  |                      UNITED STATES GOVERNMENT                      |
+  |                                                                    |
+  |    This computer is funded by the United States Government and     |
+  | operated by the California Institute of Technology in support of   |
+  | ongoing U.S. Government programs and activities.  If you are not   |
+  | authorized to access this system, disconnect now.  Users of this   |
+  | system have no expectation of privacy. By continuing, you consent  |
+  |     to your keystrokes and data content being monitored.           |
+  ======================================================================
+ 
+[H[J                                                                          
+     ___    _____     ___                                                 
+    /_ /|  /____/ \  /_ /|       Horizons On-line Ephemeris System v3.76  
+    | | | |  __ \ /| | | |       Solar System Dynamics Group              
+ ___| | | | |__) |/  | | |__     Jet Propulsion Laboratory                
+/___| | | |  ___/    | |/__ /|   Pasadena, CA, USA                        
+|_____|/  |_|/       |_____|/                                             
+ 
+ Establishing connection, stand-by ...  
+[H[J 
+JPL Horizons, version 3.76 
+Type `?' for brief intro, `?!' for more details 
+System news updated May 28, 2013
+ 
+Horizons> 999
+[?1h=*******************************************************************************
+ Revised: Oct 24, 2011             134340 Pluto                             999
+ 
+ Fit to all available observations.
+ FK5/J2000.0 helio. ecliptic osc. elements (AU, DAYS, DEG, period=Julian yrs):
+
+ EPOCH= 2454648.5 ! 2008-Jul-01.00 (CT)
+  EC= 2.566687011667356E-01 QR= 2.980651303494526E+01 TP=  2448174.216430557892
+  OM= 1.103600311387948E+02 W = 1.161890224972339E+02 IN= 1.709558287650895E+01
+  A = 4.009855777865089E+01 MA= 25.130588774518851 ADIST= 5.039060252235653E+01
+
+ PHYSICAL DATA (updated 2006-Feb-27):
+  Mass Pluto (10^22 kg) =   1.314+-0.018  Density Pluto:
+  GM (planet) km^3/s^2  =  870               (R = 1137+-8 km)   = 2.06 g/cm^3
+  Mass ratio (Mc/Mp)    = 0.12            Radius of Pluto, Rp   = 1151 km
+  Surface gravity       = 65.5 cm/s^2     Geometric albedo      = 0.3 
+  Sidereal orbit period = 247.92065 yr    Orbit velocity        = 4.749 km/s
+  Escape velocity (km/s)= 1.3
+*******************************************************************************
+[K[?1l> Select ... [E]phemeris, [F]tp, [M]ail, [R]edisplay, ?, <cr>: E
+ 
+ Observe, Elements, Vectors  [o,e,v,?] : v
+ Coordinate center [ <id>,coord,geo  ] : 500@0
+[?1h=
+   #   E. Lon    DXY      DZ    Observatory Name
+  --- -------- ------- -------  ----------------
+  500   0.0000 +000000  000000  Solar System Barycenter (SSB)
+[K[?1l> 
+ Confirm selected station    [ y/n ] --> y
+ Reference plane [eclip, frame, body ] : eclip
+ Starting CT  [>=   1899-Dec-31 00:00] : 2000-01-01
+ Ending   CT  [<=   2100-Jan-03 00:00] : 2000-01-11
+ Output interval [ex: 10m, 1h, 1d, ? ] : 10d
+ 
+ Current output table defaults --
+   Ref. Frame   = ICRF/J2000.0
+   Corrections  = NONE
+   Units        = AU-D
+   CSV format   = NO
+   Table type   = 03 (position, velocity, LT, rng, rng-rate)
+   Vector label = NO
+ 
+ Accept default output [ cr=(y), n, ?] : y
+ Working ...   -  
+[?1h=*******************************************************************************
+Ephemeris / PORT_LOGIN Fri Jul  5 05:56:03 2013 Pasadena, USA    / Horizons    
+*******************************************************************************
+Target body name: Pluto (999)                     {source: PLU031}
+Center body name: Solar System Barycenter (0)     {source: DE405}
+Center-site name: BODY CENTER
+*******************************************************************************
+Start time      : A.D. 2000-Jan-01 00:00:00.0000 CT 
+Stop  time      : A.D. 2000-Jan-11 00:00:00.0000 CT 
+Step-size       : 14400 minutes
+*******************************************************************************
+Center geodetic : 0.00000000,0.00000000,0.0000000 {E-lon(deg),Lat(deg),Alt(km)}
+Center cylindric: 0.00000000,0.00000000,0.0000000 {E-lon(deg),Dxy(km),Dz(km)}
+Center radii    : (undefined)                                                  
+Output units    : AU-D                                                         
+Output format   : 03
+Reference frame : ICRF/J2000.0                                                 
+Output type     : GEOMETRIC cartesian states
+Coordinate systm: Ecliptic and Mean Equinox of Reference Epoch                 
+*******************************************************************************
+JDCT 
+   X     Y     Z
+   VX    VY    VZ
+   LT    RG    RR
+*******************************************************************************
+$$SOE
+2451544.500000000 = A.D. 2000-Jan-01 00:00:00.0000 (CT)
+  -9.884002826320547E+00 -2.796080077448092E+01  5.851016944736992E+00
+   3.044294943838434E-03 -1.537351087334838E-03 -7.173015697644308E-04
+   1.745825885160907E-01  3.022803816175513E+01  2.877726949602797E-04
+2451554.500000000 = A.D. 2000-Jan-11 00:00:00.0000 (CT)
+  -9.853661003425936E+00 -2.797625674028151E+01  5.843870191463751E+00
+   3.025790338619172E-03 -1.546695388631237E-03 -7.035624502084092E-04
+   1.745999845015514E-01  3.023105018326791E+01  3.090897385274390E-04
+$$EOE
+*******************************************************************************
+Coordinate system description:
+
+  Ecliptic and Mean Equinox of Reference Epoch
+
+    Reference epoch: J2000.0
+    xy-plane: plane of the Earth's orbit at the reference epoch
+[7m < Scroll & Page: space, <cr>, <b>ack, OR arrow keys. <q> ends display. > 56%[m[K[K    x-axis  : out along ascending node of instantaneous plane of the Earth's
+              orbit and the Earth's mean equator at the reference epoch
+    z-axis  : perpendicular to the xy-plane in the directional (+ or -) sense
+              of Earth's north pole at the reference epoch.
+
+Symbol meaning [1 AU=149597870.691 km, 1 day=86400.0 s]:
+
+    JDCT     Epoch Julian Date, Coordinate Time
+      X      x-component of position vector (AU)                               
+      Y      y-component of position vector (AU)                               
+      Z      z-component of position vector (AU)                               
+      VX     x-component of velocity vector (AU/day)                           
+      VY     y-component of velocity vector (AU/day)                           
+      VZ     z-component of velocity vector (AU/day)                           
+      LT     One-way down-leg Newtonian light-time (day)                       
+      RG     Range; distance from coordinate center (AU)                       
+      RR     Range-rate; radial velocity wrt coord. center (AU/day)            
+
+Geometric states/elements have no aberration corrections applied.
+
+ Computations by ...
+     Solar System Dynamics Group, Horizons On-Line Ephemeris System
+     4800 Oak Grove Drive, Jet Propulsion Laboratory
+     Pasadena, CA  91109   USA
+     Information: http://ssd.jpl.nasa.gov/
+     Connect    : telnet://ssd.jpl.nasa.gov:6775  (via browser)
+                  telnet ssd.jpl.nasa.gov 6775    (via command-line)
+     Author     : Jon.Giorgini@jpl.nasa.gov
+*******************************************************************************
+[K[?1l> >>> Select... [A]gain, [N]ew-case, [F]tp, [K]ermit, [M]ail, [R]edisplay, ? : 

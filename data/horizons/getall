@@ -1,0 +1,17 @@
+#! /bin/bash
+#http://ssd.jpl.nasa.gov/horizons.cgi
+
+./getdata 10 Sun
+
+./getdata 199 Mercury
+./getdata 299 Venus
+./getdata 399 Earth_Geo
+./getdata 499 Mars
+./getdata 599 Jupiter
+./getdata 699 Saturn
+./getdata 799 Uranus
+./getdata 899 Neptune
+./getdata 999 Pluto
+
+./getdata 301 Moon
+
