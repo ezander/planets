@@ -5,17 +5,32 @@ Created on Mon Aug  5 17:40:10 2013
 @author: ezander
 """
 
-from sim.odesim import SimObject
+from sim.odesim import SimObject, floatvec
+from numpy import concatenate as cat
+
+class Units:
+    m = 1.0
+    km = 1000 * m
+    AU=149597870.691 * km
+
+    s = 1.0
+    h = 3600 * s
+    d = 24 * hr
+
+    G = 6.6738480E-11 m**3 * kg / s**2
+
+print Units.d
 
 class Planet(SimObject):
     def __init__(self):
         self.name = "foo"
         self.display_name = "Foobar planet"
         self.mass = 1
-        self.x = [0, 0, 0]
-        self.v = [0, 0, 0]
+        self.x = floatvec([0, 0, 0])
+        self.v = floatvec([0, 0, 0])
         self.rot_axis = [0, 0, 1]
-        self.rot_angle = 0
+        self.rot_speed = [0]
+        self.rot_angle = [0]
 
     @property
     def dim(self):
@@ -23,7 +38,7 @@ class Planet(SimObject):
         
     @property
     def state(self):
-        return [self.x, self.v, self.rot_angle]
+        return cat((self.x, self.v, self.rot_angle))
         
     @state.setter
     def state(self, value):
@@ -32,7 +47,8 @@ class Planet(SimObject):
         self.rot_angle = value[6]
     
     def diff(self, t):
-        pass
+        a = 0 * self.x
+        return cat((self.v, a, self.rot_speed))
     
 class SolarSystem(object):
     def __init__(self):
@@ -52,8 +68,9 @@ class SolarSystem(object):
             planet.name = key
             planet.display_name = val["name_en"]
             planet.mass = val["mass"]
-            planet.x = val["position"]
-            planet.y = val["speed"]
+            planet.x = floatvec(val["position"])
+            planet.v = floatvec(val["speed"])
+            self.bodies[key] = planet
             print key
     
     

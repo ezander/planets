@@ -14,10 +14,15 @@ solsys.read_json("solarsys.json")
 
 simulator = OdeSimulator()
 for body in solsys.get_bodies():
-    print body.name, body.display_name, body.mass
+    print body.display_name, ":", body.x
     simulator.add(body)
-    print "bar"
 
+simulator.integrate(100)
+print 
+print
+
+for body in solsys.get_bodies():
+    print body.display_name, ":", body.x
 
 
 print "foo"

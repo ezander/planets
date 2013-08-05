@@ -77,7 +77,15 @@ def test_multi_rocket2():
     assert_almost_equal(rocket.state, array([1000.0 * log(120.0/119.0)]))
     assert_almost_equal(len(rocket.stages), 2)
 
+    odesim.integrate(89.99)
+    print len(rocket.stages)
+    print rocket.stage.state, rocket.stages[1].state
     odesim.integrate(90)
+    print len(rocket.stages)
+    print rocket.stage.state
+    odesim.integrate(90.01)
+    print len(rocket.stages)
+    print rocket.stage.state
     #assert_array_almost_equal(rocket.state, 1000.0 * log(120.0/30.0), decimal=3)
     odesim.integrate(95)
     assert_almost_equal(len(rocket.stages), 1)

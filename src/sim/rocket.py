@@ -26,14 +26,15 @@ class Stage(SimObject):
 
     @state.setter
     def state(self, value):
-        self.m_t = max(value, 0.0)
+        self.m_t = max(value, floatvec(0.0))
         
     def diff(self, t):
         if self.active and self.m_t>0:
             dydt = floatvec(-self.dmdt)
         else:
             dydt = floatvec(0.0)
-            
+        #print "dydt", t, self.m_e, self.m_t, dydt
+        #print "dydt", t+self.m_t
         return dydt
 
 class Rocket(SimObject):

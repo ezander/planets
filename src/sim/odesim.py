@@ -50,7 +50,7 @@ class OdeSimulator(object):
         simobj.on_add(self)
         
     def integrate(self, t):
-        myode = ode(self.diff).set_integrator('dopri5')
+        myode = ode(self.diff).set_integrator('dopri5', max_step=1)
         myode.set_initial_value(self.y, self.t)
     
         myode.integrate(t)
