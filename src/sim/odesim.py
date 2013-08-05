@@ -10,8 +10,11 @@ from scipy.integrate import ode
 from abc import ABCMeta, abstractmethod, abstractproperty
 from numpy import array
 
+def floatvec(f):
+    return array(f, dtype=float, ndmin=1)
+
 class SimObject(object):
-    __metaclass__ = ABCMeta    
+    __metaclass__ = ABCMeta
 
     @abstractproperty
     def dim(self):
@@ -34,7 +37,7 @@ class OdeSimulator(object):
         self.n1 = []
         self.n2 = []
         self.dim = 0
-        self.y = array([], dtype=float);
+        self.y = floatvec([]);
         self.t = 0
 
     def add(self, simobj):

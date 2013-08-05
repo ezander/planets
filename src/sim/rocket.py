@@ -6,10 +6,7 @@ Created on Tue Jul 30 11:50:27 2013
 """
 
 from numpy import array
-from odesim import SimObject
-
-def floatvec(f):
-    return array(f, dtype=float, ndmin=1)
+from odesim import SimObject, floatvec
 
 class Stage(SimObject):
     def __init__(self, v_g, m_e, m_t, dmdt):

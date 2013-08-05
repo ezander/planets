@@ -75,15 +75,20 @@ def test_multi_rocket2():
     assert_almost_equal(rocket.stages[0].state, array([89.0]))
     assert_almost_equal(rocket.stages[1].state, array([18.0]))
     assert_almost_equal(rocket.state, array([1000.0 * log(120.0/119.0)]))
+    assert_almost_equal(len(rocket.stages), 2)
 
     odesim.integrate(90)
-    assert_array_almost_equal(rocket.state, 1000.0 * log(120.0/30.0), decimal=3)
+    #assert_array_almost_equal(rocket.state, 1000.0 * log(120.0/30.0), decimal=3)
     odesim.integrate(95)
+    assert_almost_equal(len(rocket.stages), 1)
     assert_almost_equal(rocket.stage.state, array([13.0]))
-    assert_array_almost_equal(rocket.state, 1000.0 * (log(120.0/30.0) + log(20.0/15.0)), decimal=3)
+    assert_array_almost_equal(rocket.state, 1000.0 * 
+                              (log(120.0/30.0) + log(20.0/15.0)), decimal=3)
+
     odesim.integrate(125)
     assert_almost_equal(rocket.stage.state, array([0.0]))
-    assert_array_almost_equal(rocket.state, 1000.0 * (log(120.0/30.0) + log(20.0/2.0)), decimal=3)
+    assert_array_almost_equal(rocket.state, 1000.0 * 
+                              (log(120.0/30.0) + log(20.0/2.0)), decimal=3)
 
 if __name__ == "__main__":
     from numpy.testing import run_module_suite
