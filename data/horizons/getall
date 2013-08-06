@@ -1,5 +1,7 @@
 #! /bin/bash
-#http://ssd.jpl.nasa.gov/horizons.cgi
+
+# Get data for all currently registered celestial bodies from the
+# horizon data base (http://ssd.jpl.nasa.gov/horizons.cgi)
 
 ./getdata 10 Sun
 

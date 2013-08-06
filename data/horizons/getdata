@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# Script to get date from one celestial body from the horizon data
+# base (called from getdata, calls ftpinp to actually get the data)
+
 tmp=horizons$$.txt
 out=horizon_$1.txt
 

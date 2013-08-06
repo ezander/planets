@@ -1,5 +1,8 @@
 #!/usr/bin/expect -f
 
+# FTP (expect) script to get date from one celestial body from the
+# horizon data base (called from getdata)
+
 spawn telnet ssd.jpl.nasa.gov 6775
 
 expect "for more details"
