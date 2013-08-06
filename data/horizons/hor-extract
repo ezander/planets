@@ -1,0 +1,69 @@
+#! /bin/bash
+
+if [ -z "$1" ]; then
+    #echo "No file specified"
+    $0 ./hor*.txt
+    exit 
+fi
+
+lastfile=$(eval "echo \${$#}")
+echo "{"
+for file in "$@"; do
+    if [ ! -e "$file" ]; then
+	echo "File not found"
+	exit 1
+    fi
+
+    awk --source '
+  BEGIN { 
+    indata=0; 
+    count=0;
+    #print "{";
+  } 
+  /^Target body name:/ {
+     body_name=tolower($0);
+     sub("^.*name: *","",body_name)
+     sub(" \\(.*$","",body_name)
+
+     body_id=$0;
+     sub("^.*\\(","",body_id)
+     sub("\\).*$","",body_id)
+
+     printf "  \"%s\": {\n", body_name;
+     printf "    \"horizon_id\": %s,\n", body_id;
+  }
+  /^\$\$SOE/ { 
+    indata=1;
+    count=0;
+  }
+  /^\$\$EOE/ { 
+    indata=0;
+    printf "  }"
+  }
+  indata==1 { 
+    count++;
+  }
+  count==3 { 
+    sub("^ *", "")
+    sub(" *$", "")
+    gsub(" +", ", ");
+    printf "    \"position\": [%s],\n", $0
+  }
+  count==4 { 
+    sub("^ *", "")
+    sub(" *$", "")
+    gsub(" +", ", ");
+    printf "    \"velocity\": [%s]\n", $0
+  }
+  END { 
+    #print "}"; 
+  }
+' \
+    $file 
+    if [[ $file == $lastfile ]]; then
+	echo -en "\n"
+    else
+	echo -en ",\n"
+    fi
+done
+echo "}"
