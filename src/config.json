@@ -1,0 +1,10 @@
+{
+	"ambient": 10,
+	"show_coords":   true,
+	"fadein":  true,
+	"window_title": "Solar system",
+	"rescale_orbit": 0.001,
+	"rescale_size": 0.13,
+	"rescale_size_ref": 1e7
+}
+

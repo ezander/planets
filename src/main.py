@@ -6,7 +6,8 @@ Created on Mon Aug  5 17:39:21 2013
 """
 
 from sim.odesim import OdeSimulator
-from sim.planet import SolarSystem, Units
+from sim.planet import SolarSystem
+from sim.physics import Units
 
 solsys = SolarSystem()
 

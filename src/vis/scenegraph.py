@@ -1,7 +1,7 @@
 from OpenGL.GL import *
 from OpenGL.GLU import *
 
-image_dir = "./images"
+image_dir = "../images"
 
 __all__ = ["Node", "Rotation", "Scaling", "Translation", 
            "TexturedSphere", "CoordSystemNode",

@@ -2,9 +2,9 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-from scenegraph import *
-from camera import *
-from application import *
+from vis.scenegraph import *
+from vis.camera import *
+from vis.application import *
 
 
 class StarField(TexturedSphere):
@@ -14,7 +14,6 @@ class StarField(TexturedSphere):
         self.mipmap = False
 
 class CelestialBody(TexturedSphere):
-
     def __init__(self, *args, **kwargs):
         TexturedSphere.__init__(self, *args, **kwargs)
         self.orbital_radius = 0

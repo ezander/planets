@@ -45,9 +45,11 @@ class CameraOnSphere(CameraLookAt):
     def pan_down(self, val):
         self.theta -= val
     def pan_in(self, val):
-        self.radius -= val
+        #self.radius -= val
+        self.radius /= 1.1**val
     def pan_out(self, val):
-        self.radius += val
+        #self.radius += val
+        self.radius *= 1.1**val
         
     def setup(self):
         from math import sin, cos, pi
