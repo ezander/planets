@@ -32,7 +32,7 @@ class Planet(SimObject):
         
     @property
     def state(self):
-        return cat((self.x, self.v, self.rot_angle))
+        return concatenate((self.x, self.v, self.rot_angle))
         
     @state.setter
     def state(self, value):

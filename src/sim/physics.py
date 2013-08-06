@@ -23,4 +23,4 @@ class Constants(Units):
 def gravitational_accel(r, r2, m2):
     dr = r2 - r
     ndr = norm(dr)
-    return Units.G * m2 * dr / ndr**3
+    return Constants.G * m2 * dr / ndr**3

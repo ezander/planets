@@ -80,15 +80,16 @@ class PlanetsApplication(Application):
         solsys.read_dyn_json("solarsys_dyndata.json")
         solsys.read_vis_json("solarsys_vis.json")
 
-        root_node = Node()
-        root_node.add_child(CoordSystemNode(color=[0.3, 0.3, 0, 1], app=self))
-
+        self.root_node = Node()
+        self.root_node.add_child(CoordSystemNode(color=[0.3, 0.3, 0, 1], app=self))
+        self.simulator = OdeSimulator()
+        
         for body in solsys.get_bodies():
             sphere = CelestialBody(body, app=self)
-            root_node.add_child(sphere)
+            self.root_node.add_child(sphere)
+            self.simulator.add(body)
             print body.name, body.x/Units.AU
 
-        self.root_node = root_node
 
         self.camera = CameraOnSphere()
         self.camera.pan_out(40)
@@ -107,6 +108,8 @@ class PlanetsApplication(Application):
         glLight(light, GL_SPECULAR, (1, 1, 0.9, 1))
     
     def renderScene(self):
+        t=self.timer.elapsed()
+        self.simulator.integrate(t * Units.d * 10)
         self.root_node.render()
         
     def onInput(self, key, x, y, special):
