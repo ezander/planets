@@ -37,8 +37,13 @@ class OdeSimulator(object):
         self.n1 = []
         self.n2 = []
         self.dim = 0
+        
         self.y = floatvec([]);
         self.t = 0
+        self.myode = ode(self.diff).set_integrator('lsoda')
+        self.myode = ode(self.diff).set_integrator('vode', method='adams') 
+        #self.myode = ode(self.diff).set_integrator('dopri5')
+        self.myode = ode(self.diff).set_integrator('dopri853')
 
     def add(self, simobj):
         self.objects += [simobj]
@@ -50,11 +55,9 @@ class OdeSimulator(object):
         simobj.on_add(self)
         
     def integrate(self, t):
-        myode = ode(self.diff).set_integrator('dopri5', max_step=1)
-        myode.set_initial_value(self.y, self.t)
-    
-        myode.integrate(t)
-        self.t, self.y = myode.t, myode.y
+        self.myode.set_initial_value(self.y, self.t)
+        self.myode.integrate(t)
+        self.t, self.y = self.myode.t, self.myode.y
     
     def diff(self, t, y):
         dydt = y * 0

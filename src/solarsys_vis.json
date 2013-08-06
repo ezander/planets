@@ -1,0 +1,52 @@
+{
+  "sun": {
+    "texture": "sunmap.jpg",
+    "material": {
+      "emission": [1, 1, 1, 1],
+      "ambient": [0, 0, 0, 0]
+    },
+    "lightsource": {
+      "ambient": [1, 1, 1, 1]
+    }
+  },
+
+  "mercury": {
+    "texture": "mercury.jpg"
+  }, 
+
+  "venus": {
+    "texture": "venusmap.jpg"
+  }, 
+
+  "earth": {
+    "texture": "earthmap1k.jpg"
+  }, 
+
+  "moon": {
+    "texture": "moonmap.jpg"
+  }, 
+
+  "mars": {
+    "texture": "mars_1k_color.jpg"
+  }, 
+
+  "jupiter": {
+    "texture": "jupitermap.jpg"
+  }, 
+
+  "saturn": {
+    "texture": "saturnmap.jpg"
+  }, 
+
+  "uranus": {
+    "texture": "uranusmap.jpg"
+  }, 
+
+  "neptune": {
+    "texture": "neptunemap.jpg"
+  }, 
+
+  "pluto": {
+    "texture": "plutomap.jpg"
+  }
+}
