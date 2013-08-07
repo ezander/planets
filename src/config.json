@@ -9,7 +9,7 @@
 	"pan_right": 30,
 	"pan_up": 30,
 
-	"rescale_orbit": 0.001,
+	"rescale_orbit": 10,
 	"rescale_size": 0.13,
 	"rescale_size_ref": 1e7,
 

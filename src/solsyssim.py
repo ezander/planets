@@ -34,7 +34,10 @@ class CelestialBody(TexturedSphere):
         glPushMatrix()
         
         scale_factor = rescale_orbit_factor(norm(self.body.x), 
-                                           self.app.rescale_orbit)
+                                            10 * Units.AU,
+                                            1.6,
+                                            1 * Units.AU,
+                                            self.app.rescale_orbit)
         if scale_factor>1:
             scale_factor = 1
         #print self.body.name, scale_factor, norm(self.body.x)/Units.AU

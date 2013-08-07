@@ -21,7 +21,7 @@ def rescale_orbit(r, r0, sr, dr, f):
         rn = max(r, rn)
     return r**(f) * rn**(1-f)
 
-def rescale_orbit_factor(r, f):
+def rescale_orbit_factor(r, r0, sr, dr, f):
     if r == 0:
         return 1
-    return rescale_orbit(r, f) / r
+    return rescale_orbit(r, r0, sr, dr, f) / r
