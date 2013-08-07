@@ -47,12 +47,13 @@ def test_sim_one_object():
     assert_almost_equal(obj1.state, array([999.0, -2.0]))
     odesim.integrate(2)
     assert_almost_equal(obj1.state, array([996.0, -4.0]))
+    odesim.integrate(2)
+    assert_almost_equal(obj1.state, array([996.0, -4.0]))
     odesim.integrate(3)
     assert_almost_equal(obj1.state, array([991.0, -6.0]))
 
 def test_sim_more_objects():
     odesim = OdeSimulator()
-    #odesim.add(SimpleRocket(1000.0, 10.0, 90.0, 5.0))
     obj1 = FallingObject(1000.0, g=2)
     odesim.add(obj1)
     obj2 = FallingObject(1000.0, g=20)
@@ -61,7 +62,7 @@ def test_sim_more_objects():
     odesim.add(obj3)
     
     odesim.integrate(1)
-    odesim.integrate(3)
+    odesim.integrate(1.5)
     odesim.integrate(2)
     assert_almost_equal(obj1.state, array([996.0,  -4.0]))
     assert_almost_equal(obj2.state, array([960.0, -40.0]))

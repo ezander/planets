@@ -1,10 +1,20 @@
 {
+	"window_title": "Solar system",
+
 	"ambient": 10,
 	"show_coords":   true,
 	"fadein":  true,
-	"window_title": "Solar system",
+
+	"pan_out": 2,
+	"pan_right": 30,
+	"pan_up": 30,
+
 	"rescale_orbit": 0.001,
 	"rescale_size": 0.13,
-	"rescale_size_ref": 1e7
+	"rescale_size_ref": 1e7,
+
+	"integrator": "vode",
+	"XXode_kwargs": {"atol": 1e-3, "rtol": 1e-3},
+	"ode_kwargs": {}
 }
 

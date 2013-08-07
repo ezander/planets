@@ -26,7 +26,7 @@ class Stage(SimObject):
 
     @state.setter
     def state(self, value):
-        self.m_t = max(value, floatvec(0.0))
+        self.m_t = value
         
     def diff(self, t):
         if self.active and self.m_t>0:
@@ -92,6 +92,7 @@ class MultistageRocket(Rocket):
     def __init__(self, v_0=0):
         Rocket.__init__(self, v_0)
         self.stages = []
+        self.cur_stage = 0
 
     def add(self, stage):
         self.stages = self.stages + [stage]
@@ -107,7 +108,7 @@ class MultistageRocket(Rocket):
     def _init_stages(self):
         payload = sum(stage.m_e for stage in self.stages)
         payload += sum(stage.m_t for stage in self.stages[1:])
-        self.set_stage(self.stages[0], payload)
+        self.set_stage(self.stages[self.cur_stage], payload)
         for stage in self.stages:
             stage.active = False
         self.stage.active = True
@@ -117,7 +118,7 @@ class MultistageRocket(Rocket):
         dydt = Rocket.diff(self, t)
         if self.stage.m_t<=0 and len(self.stages)>1:
             self.stage.active = False
-            self.stages = self.stages[1:]
+            self.cur_stage+=1
             self._init_stages()
         return dydt
 

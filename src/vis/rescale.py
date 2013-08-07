@@ -4,15 +4,12 @@ from sim.physics import Units
 
 def rescale_size(d, d0, f):
     # 1 realistic, 0 all same
+    d0 = float(d0)
     return d0 * (d/d0)**f
     
 def rescale_size_factor(d, d0, f):
     return rescale_size(d, d0, f) / d
 
-#dp = [1e6, 1.4e5, 1.2e4, 6.6e3, 3.4e3, 1e-1]
-#print dp
-#print [rescale_size(d, 1e5, 1) for d in dp]
-#print [rescale_size(d, 1e5, 0) for d in dp]
 
 
 def rescale_orbit(r, f):

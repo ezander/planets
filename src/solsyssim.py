@@ -82,7 +82,10 @@ class PlanetsApplication(Application):
 
         self.root_node = Node()
         self.root_node.add_child(CoordSystemNode(color=[0.3, 0.3, 0, 1], app=self))
-        self.simulator = OdeSimulator()
+        
+        integrator = config.get("integrator", "vode")
+        ode_kwargs = config.get("ode_kwargs", {})
+        self.simulator = OdeSimulator(integrator, ode_kwargs)
         
         for body in solsys.get_bodies():
             sphere = CelestialBody(body, app=self)
@@ -92,9 +95,9 @@ class PlanetsApplication(Application):
 
 
         self.camera = CameraOnSphere()
-        self.camera.pan_out(40)
-        self.camera.pan_right(30)
-        self.camera.pan_up(30)
+        self.camera.pan_out(config.get("pan_out", 5))
+        self.camera.pan_right(config.get("pan_right", 30))
+        self.camera.pan_up(config.get("pan_up", 30))
 
         
 
@@ -153,7 +156,6 @@ class PlanetsApplication(Application):
             self.ambient = 0.3 - self.ambient
         else:
             print "Key pressed", key, x, y
-            print GLUT_KEY_DELETE
             return False
         return True
 

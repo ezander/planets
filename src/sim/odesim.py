@@ -32,7 +32,7 @@ class SimObject(object):
         pass
 
 class OdeSimulator(object):
-    def __init__(self):
+    def __init__(self, integrator='vode', ode_kwargs={}):
         self.objects = []
         self.n1 = []
         self.n2 = []
@@ -40,30 +40,35 @@ class OdeSimulator(object):
         
         self.y = floatvec([]);
         self.t = 0
-        self.myode = ode(self.diff).set_integrator('lsoda')
-        self.myode = ode(self.diff).set_integrator('vode', method='adams') 
-        #self.myode = ode(self.diff).set_integrator('dopri5')
-        self.myode = ode(self.diff).set_integrator('dopri853')
+        
+        self.myode = ode(self.diff)
+        self.myode = self.myode.set_integrator(integrator, **ode_kwargs)
 
     def add(self, simobj):
         self.objects += [simobj]
         self.n1 += [self.dim]
         self.dim += simobj.dim
         self.n2 += [self.dim]
+        self.myode.set_initial_value([], self.t)
         self.y.resize(self.dim)
         self.y[self.n1[-1]:self.n2[-1]] = simobj.state
         simobj.on_add(self)
+        self.myode.set_initial_value(self.y, self.t)
         
     def integrate(self, t):
-        self.myode.set_initial_value(self.y, self.t)
+        #self.myode.set_initial_value(self.y, self.t)
         self.myode.integrate(t)
         self.t, self.y = self.myode.t, self.myode.y
-    
-    def diff(self, t, y):
-        dydt = y * 0
+        self._copy_state2objects(self.y)
+
+    def _copy_state2objects(self, y):
         for n1, n2, simobj in zip(self.n1, self.n2, self.objects):
             simobj.state = y[n1:n2]
-
+    
+    def diff(self, t, y):
+        self._copy_state2objects(y)
+        
+        dydt = y * 0
         for n1, n2, simobj in zip(self.n1, self.n2, self.objects):
             dydt[n1:n2] = simobj.diff(t)
 
