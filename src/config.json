@@ -11,12 +11,12 @@
 
 	"rescale_orbit": 0.2,
 	"rescale_size": 0.1,
-	"xxrescale_orbit": 1.0,
-	"xxrescale_size": 0.0,
+	"__rescale_orbit": 1.0,
+	"__rescale_size": 0.0,
 	"rescale_size_ref": 2e8,
 
 	"integrator": "vode",
-	"XXode_kwargs": {"atol": 1e-3, "rtol": 1e-3},
+	"__ode_kwargs": {"atol": 1e-3, "rtol": 1e-3},
 	"ode_kwargs": {}
 }
 
