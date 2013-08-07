@@ -166,8 +166,8 @@ class Application(object):
             glAccum(GL_RETURN, 1.0)
 
     def _onDisplay(self):
-        #self.display()
-        self.onDisplayFadeIn()
+        self.display()
+        #self.onDisplayFadeIn()
         glutSwapBuffers()
 
 

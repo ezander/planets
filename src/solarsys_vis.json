@@ -2,7 +2,7 @@
   "sun": {
     "texture": "sunmap.jpg",
     "material": {
-      "emission": [1, 1, 1, 1],
+      "emission": [1, 1, 0.3, 1],
       "ambient": [0, 0, 0, 0]
     },
     "lightsource": {
@@ -27,7 +27,14 @@
   }, 
 
   "mars": {
-    "texture": "mars_1k_color.jpg"
+    "texture": "mars_1k_color.jpg",
+    "XXlightsource": {
+      "ambient": [1, 1, 1, 1]
+    }, 
+    "XXmaterial": {
+      "emission": [0.1, 1, 1.0, 1],
+      "ambient": [0, 0, 0, 0]
+    }
   }, 
 
   "jupiter": {

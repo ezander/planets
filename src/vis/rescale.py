@@ -1,4 +1,4 @@
-from numpy import log
+from math import log
 
 def rescale_size(d, d0, f):
     # 1 realistic, 0 all same

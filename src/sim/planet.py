@@ -84,4 +84,6 @@ class SolarSystem(object):
         for key, val in data.iteritems():
             planet = self.get_body(key)
             planet.texture = val["texture"]
+            planet.material = val.get("material", None)
+            planet.lightsource = val.get("lightsource", None)
             # vis:  name, refbody, size_scaling_func, radius_scaling_func, texture
