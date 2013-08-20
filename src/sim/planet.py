@@ -71,6 +71,7 @@ class SolarSystem(object):
             planet.display_name = val["name_en"]
             planet.mass = val["mass"] * Units.kg
             planet.radius = val["radius"] * Units.km
+            planet.satellite_names = val.get("satellites", [])
 
     def read_dyn_json(self, filename):
         data=json.load(open(filename))

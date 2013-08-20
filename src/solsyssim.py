@@ -79,6 +79,7 @@ class PlanetsApplication(Application):
 
         self.window_title = config.get("window_title", "Planets")
         self.show_coords = config.get("show_coords", False)
+        self.show_orbits = config.get("show_orbits", True)
         self.ambient = config.get("ambient", 0.3)
         if not isinstance(self.ambient, list):
             self.ambient = 3 * [self.ambient]
@@ -93,6 +94,7 @@ class PlanetsApplication(Application):
         solsys.read_base_json("solarsys_data.json")
         solsys.read_dyn_json("solarsys_dyndata.json")
         solsys.read_vis_json("solarsys_vis.json")
+        self.solsys = solsys
 
         self.root_node = Node()
         self.root_node.add_child(CoordSystemNode(color=[0.3, 0.3, 0, 1], app=self))
@@ -141,6 +143,24 @@ class PlanetsApplication(Application):
         
         # render planets at the new positions
         self.root_node.render()
+
+        # mean hack to draw the orbits
+        if self.show_orbits:
+            self.renderOrbits()
+    
+    def renderOrbits(self):
+        sun = self.solsys.get_body("sun")
+        print
+        for planet_name in sun.satellite_names:
+            body = self.solsys.get_body(planet_name)
+            from numpy.linalg import norm
+            print body.display_name, norm(body.x - sun.x)/Units.AU
+            f = self.get_orbit_scale_factor(body.x - sun.x)
+            r = f * norm(body.x - sun.x) / Units.AU
+            node = CircleNode(r)
+            node.display()
+            
+       
         
     def onInput(self, key, x, y, special):
         mods = glutGetModifiers()
@@ -172,6 +192,8 @@ class PlanetsApplication(Application):
             self.rescale_orbit = max(0.0, self.rescale_orbit - f/50.0)
         elif key == "c":
             self.show_coords = not self.show_coords
+        elif key == "o":
+            self.show_orbits = not self.show_orbits
         elif "1" <= key <= "9":
             s = 2.0 ** (int(key)-1)
             self.timer.set_speed(s)
